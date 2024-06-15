@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal_btu" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">LOGIN</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="login_form" hx-include="[name=id],[name=pass]" hx-post="/login" hx-target="#login">
+                <div class="modal-body">
+                    <input name="id" type="text" class="form-control rounded-3" placeholder="이름">
+                    <br>
+                    <input name="pass" type="password" class="form-control rounded-3" placeholder="비밀번호">
+                </div>
+                <div id="login" class="modal-footer">
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_sing" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Sing-up</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id='sing_form' hx-post="/sing" hx-target="#sing_btn" hx-include="[name=class_name],[name=email]">
+                <div class="modal-body">
+                    <p class="text-body-secondary h6"> 학번과 이름을 쓰고 승인을 받으면 이메일로 알려줍니다 </p>
+                    <input name="class_name" type="text" class="form-control rounded-3" placeholder="학번 && 이름">
+                    <br>
+                    <input name="email" type="email" class="form-control rounded-3" placeholder="이메일">
+                </div>
+                <div class="modal-footer" id="sing_btn">
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary">보내기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

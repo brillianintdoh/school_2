@@ -1,0 +1,28 @@
+{
+  "name": "school",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"pm2 start service/main.js --name 'ourgram'",
+    "restart":"pm2 restart service/main.js && sudo service apache2 restart && sudo service tomcat9 restart",
+    "stop":"pm2 stop service/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/express": "^4.17.21",
+    "@types/web-push": "^3.6.3",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "css-loader": "^6.10.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "htmx.org": "^1.9.11",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "web-push": "^3.6.7"
+  }
+}

@@ -1,0 +1,61 @@
+<div class="modal fade" id="modal_btu" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" hx-ext="ws" ws-connect="/writer">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">글 추가</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="title" class="col-form-label">제목</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="body" class="col-form-label">내용</label>
+                        <textarea class="form-control" id="body" name="body"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="writer_ws" style="display:none" ws-send></button>
+                <button type="button" id="chatShow_but" class="btn btn-group-lg" data-bs-toggle="modal" data-bs-target="#modal_img">
+                    <i class="bi bi-images"></i>
+                </button>
+                <button class="btn btn-primary" id="writer_form" hx-post="/writing" hx-include="[name=title],[name=body],[name=seed]" hx-trigger="click[wow()]">올리기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_img" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">이미지 추가</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                개발중
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_btu">돌아가기</button>
+                <button type="button" class="btn btn-primary">적용</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_writing" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="writing_body">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_chat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" hx-ext="ws">
+        <div class="modal-content" id="chat_body" ws-connect="/chat">
+        </div>
+    </div>
+</div>
