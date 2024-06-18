@@ -27,7 +27,7 @@ document.addEventListener("htmx:afterOnLoad", async function(evt:any) {
                 (document.getElementById("login") as HTMLElement).innerHTML = "";
                 const reg = await navigator.serviceWorker.register("/node/js/woker.js");
                 const webpush = await reg.pushManager.subscribe({
-                    applicationServerKey: "BLWJVxNSWMusrSxbVY9ojZRCvvD4jWAlnfZU7dssPftX6CQXpawxmabxMH4MOLfyWpIIAcLJWfjxBtuqNSH-NbA",
+                    applicationServerKey: "BCyzQ2r_YxmAoRn11Php0qzwvV951tG9T-pT3xB8Eloq6KGmHebDUPc9gPzE-2msxFjwZwhc3lEjvV31_MJM2xA",
                     userVisibleOnly: true,
                 });
                 await fetch("/node/push", {

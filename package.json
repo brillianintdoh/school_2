@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start":"pm2 start service/main.js --name 'ourgram'",
-    "restart":"pm2 restart service/main.js && sudo service apache2 restart && sudo service tomcat9 restart",
+    "restart":"pm2 restart service/main.js && sudo service apache2 restart && sudo service tomcat10 restart",
     "stop":"pm2 stop service/main.js"
   },
   "keywords": [],

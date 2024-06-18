@@ -16,16 +16,18 @@ web.setGCMAPIKey(gcm);
 web.setVapidDetails("mailto:palanghwi@gmail.com", vapid.public, vapid.private);
 
 app.use(express.static(path.join(__dirname, './web-push')), express.json());
-app.post('/push', (req, res) => {
+app.post('//push', (req, res) => {
   const { username, webpush, manager } = req.body;
   if(!loginUser.get(username)) {
     loginUser.set(username, { webpush:webpush, manager:manager });
     res.send("성공");
     console.log(username+"님 로그인 하셨습니다");
+  }else {
+    res.send("그런 유저가 로그인되어있지 않습니다");
   }
 });
 
-app.post("/send", function(req, res) {
+app.post("//send", function(req, res) {
   const { username, title, body } = req.body;
   const user = loginUser.get(username);
   if(user) {
@@ -43,7 +45,7 @@ app.post("/send", function(req, res) {
   }
 });
 
-app.post("/send_all", function(req, res) {
+app.post("//send_all", function(req, res) {
   const { title } = req.body;
   if(!title) {
     const message = JSON.stringify({ title:"새로운 유저!!", body:"새로운 유저가 인증요청을 보냈습니다" });
@@ -69,7 +71,7 @@ app.post("/send_all", function(req, res) {
   res.send("성공");
 });
 
-app.post("/exit", function(req,res) {
+app.post("//exit", function(req,res) {
   const { username } = req.body;
   loginUser.delete(username);
   console.log(username+"님 로그아웃 하셨습니다");
